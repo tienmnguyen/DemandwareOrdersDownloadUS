@@ -1,0 +1,2688 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dermalogica.com/webservices/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" targetNamespace="http://dermalogica.com/webservices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dermalogica.com/webservices/">
+      <s:import namespace="http://www.w3.org/2001/XMLSchema" />
+      <s:element name="Authenticate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthenticateResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CustomerLookup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddressBookNo" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CustomerLookupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerLookupResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ContactStagingID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="account_no" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StagingContactID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustSkey" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Salutation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NmFirst" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NmLast" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CityAreaCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocalPhone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhoneExt" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="terms" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StagingContactID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustSkey" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Salutation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NmFirst" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NmLast" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CityAreaCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocalPhone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhoneExt" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="terms" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPasswordResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDermDollarHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="address_book_no" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDermDollarHeaderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDermDollarHeaderResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDermDollarDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="address_book_no" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDermDollarDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDermDollarDetailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountAddress">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="address_book_no" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountAddressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAccountAddressResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBCCounter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StagingContactID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBCCounterResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateBCReferralSite">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StagingContactID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Referral" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBCReferralSiteResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateTermsConditions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StagingContactID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Terms" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTermsConditionsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="VerifyAccountStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="address_book_no" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyAccountStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerifyAccountStatusResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveB2BRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="request_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveB2BRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveB2BRequestResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveB2BRequestByEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="account_no" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveB2BRequestByEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveB2BRequestByEmailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveBCEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="account_no" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveBCEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveBCEmailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyB2BProfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="account_no" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyB2BProfileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerifyB2BProfileResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveE2WUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="account_no" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveE2WUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveE2WUserResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveE2WUserByAn8">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="account_no" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveE2WUserByAn8Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveE2WUserByAn8Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateE2WUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email_old" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email_new" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateE2WUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateE2WUserResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateNetTerms">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="an8" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="flag" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateNetTermsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateNetTermsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBCUsersByAN8">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="address_book_no" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBCUsersByAN8Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBCUsersByAN8Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatetB2BRequestEntry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="request_id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="approve" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="update_by" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatetB2BRequestEntryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdatetB2BRequestEntryResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertB2BRequestToERP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StagingId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="AN8" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertB2BRequestToERPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertB2BRequestToERPResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertB2BRequestEntry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="First_Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Last_Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone_Number" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="account_no" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="account_name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="contact_staging_id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccountProductLine" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertB2BRequestEntryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertB2BRequestEntryResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateEncryptedPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StagingContactID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateEncryptedPasswordResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetBCUsers">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetBCUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBCUsersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertB2CRequestEntry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="First_Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Last_Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone_Number" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="account_no" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="account_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebSite_URL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebSite_URL_preview" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ContactStagingID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccountProductLine" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertB2CRequestEntryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertB2CRequestEntryResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertB2CRequestEntry_ss">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="First_Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Last_Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone_Number" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="account_no" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="account_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebSite_URL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebSite_URL_preview" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ContactStagingID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccountProductLine" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="salon_services_acct" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertB2CRequestEntry_ssResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertB2CRequestEntry_ssResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveB2CRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="request_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveB2CRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveB2CRequestResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveB2CRequestByEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="account_no" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveB2CRequestByEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveB2CRequestByEmailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatetB2CRequestEntry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="request_id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="update_by" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatetB2CRequestEntryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdatetB2CRequestEntryResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyB2CProfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="account_no" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyB2CProfileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerifyB2CProfileResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyB2CProfileByAn8Prod">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="account_no" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="acct_prod_line" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyB2CProfileByAn8ProdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerifyB2CProfileByAn8ProdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertAffiliateRequestEntry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="First_Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Last_Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone_Number" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="account_no" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="account_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebSite_URL" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ContactStagingID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccountProductLine" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertAffiliateRequestEntryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertAffiliateRequestEntryResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyAffiliateProfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="account_no" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyAffiliateProfileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerifyAffiliateProfileResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyAffiliateProfileByAn8Prod">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="account_no" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="acct_prod_line" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyAffiliateProfileByAn8ProdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerifyAffiliateProfileByAn8ProdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertAffiliateRequestEntry_ss">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="First_Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Last_Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone_Number" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="account_no" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="account_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebSite_URL" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ContactStagingID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccountProductLine" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="salon_services_acct" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertAffiliateRequestEntry_ssResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertAffiliateRequestEntry_ssResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyAffiliateProfile_SS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="account_no" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="salon_services_acct" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyAffiliateProfile_SSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerifyAffiliateProfile_SSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyAffiliateProfileByAn8Prod_SS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="account_no" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="acct_prod_line" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="salon_services_acct" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyAffiliateProfileByAn8Prod_SSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerifyAffiliateProfileByAn8Prod_SSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatetAffiliateRequestEntry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="request_id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="update_by" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatetAffiliateRequestEntryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdatetAffiliateRequestEntryResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveAffiliateRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="request_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveAffiliateRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveAffiliateRequestResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_SalonServ_BusinessCenter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="account_number" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="first_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="last_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="role" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone_ext" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email_address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="terms" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_SalonServ_BusinessCenterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Insert_SalonServ_BusinessCenterResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_SalonServ_BusinessCenter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ss_contact_id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="account_number" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="first_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="last_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="role" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone_ext" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email_address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="terms" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_SalonServ_BusinessCenterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Update_SalonServ_BusinessCenterResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Retrieve_SalonServ_BusinessCenter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="account_number" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="email_address" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Retrieve_SalonServ_BusinessCenterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Retrieve_SalonServ_BusinessCenterResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Retrieve_SalonServ_CustMaster">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cust_number" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Retrieve_SalonServ_CustMasterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Retrieve_SalonServ_CustMasterResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Retrieve_SalonServ_BusinessCenter_Email">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email_address" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Retrieve_SalonServ_BusinessCenter_EmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Retrieve_SalonServ_BusinessCenter_EmailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Retrieve_SalonServ_BusinessCenter_Email_Password">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email_address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Retrieve_SalonServ_BusinessCenter_Email_PasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Retrieve_SalonServ_BusinessCenter_Email_PasswordResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_SalonServices_BusinessCenter_Counter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="contact_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_SalonServices_BusinessCenter_CounterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Update_SalonServices_BusinessCenter_CounterResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Retrieve_Payterms_Exist">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="account_no" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Retrieve_Payterms_ExistResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Retrieve_Payterms_ExistResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertPayTermsRequestEntry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="First_Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Last_Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone_Number" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="account_no" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="account_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="owner_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="owner_email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ContactStagingID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccountProductLine" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertPayTermsRequestEntryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertPayTermsRequestEntryResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyPayTermsProfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="account_no" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyPayTermsProfileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerifyPayTermsProfileResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatetPayTermsRequestEntry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="request_id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="update_by" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatetPayTermsRequestEntryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdatetPayTermsRequestEntryResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrievePayTermsRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="request_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrievePayTermsRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrievePayTermsRequestResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOwner">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AN8" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOwnerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOwnerResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AcceptPayTermsApproval">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AcceptPayTermsApprovalResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Add_ID_Out">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CustSkey" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Salutation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NmFirst" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NmLast" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CityAreaCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocalPhone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhoneExt" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="terms" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ConfirmFlg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add_ID_OutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Add_ID_OutResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CustomerPhoneLookup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PhoneNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CustomerPhoneLookupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerPhoneLookupResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateDermEdu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateDermEduResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthenticateDermEduResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPasswordDermEdu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPasswordDermEduResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPasswordDermEduResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertEventDirectoryEntry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="First_Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Last_Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone_Number" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="account_no" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="account_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebSite_URL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebSite_URL_preview" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ContactStagingID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccountProductLine" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Facebook_Page" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Twitter_Handle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Event_Date" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Event_Time" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Event_Location" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Event_City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Event_State" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Event_ZipCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Business_Consultant" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SpecialPromo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertEventDirectoryEntryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertEventDirectoryEntryResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveEventDirectory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="account_no" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveEventDirectoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveEventDirectoryResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveEventDirectoryByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="event_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveEventDirectoryByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveEventDirectoryByIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveDermCircleBanner">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="account_no" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveDermCircleBannerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveDermCircleBannerResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EncryptCrypto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strDecryptedText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EncryptCryptoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EncryptCryptoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DecryptCrypto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strEncryptedText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DecryptCryptoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DecryptCryptoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AuthenticateSoapIn">
+    <wsdl:part name="parameters" element="tns:Authenticate" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenticateResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustomerLookupSoapIn">
+    <wsdl:part name="parameters" element="tns:CustomerLookup" />
+  </wsdl:message>
+  <wsdl:message name="CustomerLookupSoapOut">
+    <wsdl:part name="parameters" element="tns:CustomerLookupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSoapIn">
+    <wsdl:part name="parameters" element="tns:Get" />
+  </wsdl:message>
+  <wsdl:message name="GetSoapOut">
+    <wsdl:part name="parameters" element="tns:GetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserId" />
+  </wsdl:message>
+  <wsdl:message name="GetUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddSoapIn">
+    <wsdl:part name="parameters" element="tns:Add" />
+  </wsdl:message>
+  <wsdl:message name="AddSoapOut">
+    <wsdl:part name="parameters" element="tns:AddResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPassword" />
+  </wsdl:message>
+  <wsdl:message name="GetPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDermDollarHeaderSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDermDollarHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDermDollarHeaderSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDermDollarHeaderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDermDollarDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDermDollarDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetDermDollarDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDermDollarDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountAddressSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccountAddress" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountAddressSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccountAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBCCounterSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateBCCounter" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBCCounterSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateBCCounterResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBCReferralSiteSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateBCReferralSite" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBCReferralSiteSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateBCReferralSiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTermsConditionsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateTermsConditions" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTermsConditionsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateTermsConditionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerifyAccountStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:VerifyAccountStatus" />
+  </wsdl:message>
+  <wsdl:message name="VerifyAccountStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:VerifyAccountStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveB2BRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveB2BRequest" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveB2BRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveB2BRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveB2BRequestByEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveB2BRequestByEmail" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveB2BRequestByEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveB2BRequestByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveBCEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveBCEmail" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveBCEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveBCEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerifyB2BProfileSoapIn">
+    <wsdl:part name="parameters" element="tns:VerifyB2BProfile" />
+  </wsdl:message>
+  <wsdl:message name="VerifyB2BProfileSoapOut">
+    <wsdl:part name="parameters" element="tns:VerifyB2BProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveE2WUserSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveE2WUser" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveE2WUserSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveE2WUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveE2WUserByAn8SoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveE2WUserByAn8" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveE2WUserByAn8SoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveE2WUserByAn8Response" />
+  </wsdl:message>
+  <wsdl:message name="UpdateE2WUserSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateE2WUser" />
+  </wsdl:message>
+  <wsdl:message name="UpdateE2WUserSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateE2WUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateNetTermsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateNetTerms" />
+  </wsdl:message>
+  <wsdl:message name="UpdateNetTermsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateNetTermsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBCUsersByAN8SoapIn">
+    <wsdl:part name="parameters" element="tns:GetBCUsersByAN8" />
+  </wsdl:message>
+  <wsdl:message name="GetBCUsersByAN8SoapOut">
+    <wsdl:part name="parameters" element="tns:GetBCUsersByAN8Response" />
+  </wsdl:message>
+  <wsdl:message name="UpdatetB2BRequestEntrySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatetB2BRequestEntry" />
+  </wsdl:message>
+  <wsdl:message name="UpdatetB2BRequestEntrySoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatetB2BRequestEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertB2BRequestToERPSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertB2BRequestToERP" />
+  </wsdl:message>
+  <wsdl:message name="InsertB2BRequestToERPSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertB2BRequestToERPResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertB2BRequestEntrySoapIn">
+    <wsdl:part name="parameters" element="tns:InsertB2BRequestEntry" />
+  </wsdl:message>
+  <wsdl:message name="InsertB2BRequestEntrySoapOut">
+    <wsdl:part name="parameters" element="tns:InsertB2BRequestEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateEncryptedPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateEncryptedPassword" />
+  </wsdl:message>
+  <wsdl:message name="UpdateEncryptedPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateEncryptedPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBCUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBCUsers" />
+  </wsdl:message>
+  <wsdl:message name="GetBCUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBCUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertB2CRequestEntrySoapIn">
+    <wsdl:part name="parameters" element="tns:InsertB2CRequestEntry" />
+  </wsdl:message>
+  <wsdl:message name="InsertB2CRequestEntrySoapOut">
+    <wsdl:part name="parameters" element="tns:InsertB2CRequestEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertB2CRequestEntry_ssSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertB2CRequestEntry_ss" />
+  </wsdl:message>
+  <wsdl:message name="InsertB2CRequestEntry_ssSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertB2CRequestEntry_ssResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveB2CRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveB2CRequest" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveB2CRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveB2CRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveB2CRequestByEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveB2CRequestByEmail" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveB2CRequestByEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveB2CRequestByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatetB2CRequestEntrySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatetB2CRequestEntry" />
+  </wsdl:message>
+  <wsdl:message name="UpdatetB2CRequestEntrySoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatetB2CRequestEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerifyB2CProfileSoapIn">
+    <wsdl:part name="parameters" element="tns:VerifyB2CProfile" />
+  </wsdl:message>
+  <wsdl:message name="VerifyB2CProfileSoapOut">
+    <wsdl:part name="parameters" element="tns:VerifyB2CProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerifyB2CProfileByAn8ProdSoapIn">
+    <wsdl:part name="parameters" element="tns:VerifyB2CProfileByAn8Prod" />
+  </wsdl:message>
+  <wsdl:message name="VerifyB2CProfileByAn8ProdSoapOut">
+    <wsdl:part name="parameters" element="tns:VerifyB2CProfileByAn8ProdResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertAffiliateRequestEntrySoapIn">
+    <wsdl:part name="parameters" element="tns:InsertAffiliateRequestEntry" />
+  </wsdl:message>
+  <wsdl:message name="InsertAffiliateRequestEntrySoapOut">
+    <wsdl:part name="parameters" element="tns:InsertAffiliateRequestEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerifyAffiliateProfileSoapIn">
+    <wsdl:part name="parameters" element="tns:VerifyAffiliateProfile" />
+  </wsdl:message>
+  <wsdl:message name="VerifyAffiliateProfileSoapOut">
+    <wsdl:part name="parameters" element="tns:VerifyAffiliateProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerifyAffiliateProfileByAn8ProdSoapIn">
+    <wsdl:part name="parameters" element="tns:VerifyAffiliateProfileByAn8Prod" />
+  </wsdl:message>
+  <wsdl:message name="VerifyAffiliateProfileByAn8ProdSoapOut">
+    <wsdl:part name="parameters" element="tns:VerifyAffiliateProfileByAn8ProdResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertAffiliateRequestEntry_ssSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertAffiliateRequestEntry_ss" />
+  </wsdl:message>
+  <wsdl:message name="InsertAffiliateRequestEntry_ssSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertAffiliateRequestEntry_ssResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerifyAffiliateProfile_SSSoapIn">
+    <wsdl:part name="parameters" element="tns:VerifyAffiliateProfile_SS" />
+  </wsdl:message>
+  <wsdl:message name="VerifyAffiliateProfile_SSSoapOut">
+    <wsdl:part name="parameters" element="tns:VerifyAffiliateProfile_SSResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerifyAffiliateProfileByAn8Prod_SSSoapIn">
+    <wsdl:part name="parameters" element="tns:VerifyAffiliateProfileByAn8Prod_SS" />
+  </wsdl:message>
+  <wsdl:message name="VerifyAffiliateProfileByAn8Prod_SSSoapOut">
+    <wsdl:part name="parameters" element="tns:VerifyAffiliateProfileByAn8Prod_SSResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatetAffiliateRequestEntrySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatetAffiliateRequestEntry" />
+  </wsdl:message>
+  <wsdl:message name="UpdatetAffiliateRequestEntrySoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatetAffiliateRequestEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAffiliateRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveAffiliateRequest" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAffiliateRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveAffiliateRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="Insert_SalonServ_BusinessCenterSoapIn">
+    <wsdl:part name="parameters" element="tns:Insert_SalonServ_BusinessCenter" />
+  </wsdl:message>
+  <wsdl:message name="Insert_SalonServ_BusinessCenterSoapOut">
+    <wsdl:part name="parameters" element="tns:Insert_SalonServ_BusinessCenterResponse" />
+  </wsdl:message>
+  <wsdl:message name="Update_SalonServ_BusinessCenterSoapIn">
+    <wsdl:part name="parameters" element="tns:Update_SalonServ_BusinessCenter" />
+  </wsdl:message>
+  <wsdl:message name="Update_SalonServ_BusinessCenterSoapOut">
+    <wsdl:part name="parameters" element="tns:Update_SalonServ_BusinessCenterResponse" />
+  </wsdl:message>
+  <wsdl:message name="Retrieve_SalonServ_BusinessCenterSoapIn">
+    <wsdl:part name="parameters" element="tns:Retrieve_SalonServ_BusinessCenter" />
+  </wsdl:message>
+  <wsdl:message name="Retrieve_SalonServ_BusinessCenterSoapOut">
+    <wsdl:part name="parameters" element="tns:Retrieve_SalonServ_BusinessCenterResponse" />
+  </wsdl:message>
+  <wsdl:message name="Retrieve_SalonServ_CustMasterSoapIn">
+    <wsdl:part name="parameters" element="tns:Retrieve_SalonServ_CustMaster" />
+  </wsdl:message>
+  <wsdl:message name="Retrieve_SalonServ_CustMasterSoapOut">
+    <wsdl:part name="parameters" element="tns:Retrieve_SalonServ_CustMasterResponse" />
+  </wsdl:message>
+  <wsdl:message name="Retrieve_SalonServ_BusinessCenter_EmailSoapIn">
+    <wsdl:part name="parameters" element="tns:Retrieve_SalonServ_BusinessCenter_Email" />
+  </wsdl:message>
+  <wsdl:message name="Retrieve_SalonServ_BusinessCenter_EmailSoapOut">
+    <wsdl:part name="parameters" element="tns:Retrieve_SalonServ_BusinessCenter_EmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="Retrieve_SalonServ_BusinessCenter_Email_PasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:Retrieve_SalonServ_BusinessCenter_Email_Password" />
+  </wsdl:message>
+  <wsdl:message name="Retrieve_SalonServ_BusinessCenter_Email_PasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:Retrieve_SalonServ_BusinessCenter_Email_PasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="Update_SalonServices_BusinessCenter_CounterSoapIn">
+    <wsdl:part name="parameters" element="tns:Update_SalonServices_BusinessCenter_Counter" />
+  </wsdl:message>
+  <wsdl:message name="Update_SalonServices_BusinessCenter_CounterSoapOut">
+    <wsdl:part name="parameters" element="tns:Update_SalonServices_BusinessCenter_CounterResponse" />
+  </wsdl:message>
+  <wsdl:message name="Retrieve_Payterms_ExistSoapIn">
+    <wsdl:part name="parameters" element="tns:Retrieve_Payterms_Exist" />
+  </wsdl:message>
+  <wsdl:message name="Retrieve_Payterms_ExistSoapOut">
+    <wsdl:part name="parameters" element="tns:Retrieve_Payterms_ExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertPayTermsRequestEntrySoapIn">
+    <wsdl:part name="parameters" element="tns:InsertPayTermsRequestEntry" />
+  </wsdl:message>
+  <wsdl:message name="InsertPayTermsRequestEntrySoapOut">
+    <wsdl:part name="parameters" element="tns:InsertPayTermsRequestEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerifyPayTermsProfileSoapIn">
+    <wsdl:part name="parameters" element="tns:VerifyPayTermsProfile" />
+  </wsdl:message>
+  <wsdl:message name="VerifyPayTermsProfileSoapOut">
+    <wsdl:part name="parameters" element="tns:VerifyPayTermsProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatetPayTermsRequestEntrySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatetPayTermsRequestEntry" />
+  </wsdl:message>
+  <wsdl:message name="UpdatetPayTermsRequestEntrySoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatetPayTermsRequestEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePayTermsRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrievePayTermsRequest" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePayTermsRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrievePayTermsRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOwnerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOwner" />
+  </wsdl:message>
+  <wsdl:message name="GetOwnerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOwnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="AcceptPayTermsApprovalSoapIn">
+    <wsdl:part name="parameters" element="tns:AcceptPayTermsApproval" />
+  </wsdl:message>
+  <wsdl:message name="AcceptPayTermsApprovalSoapOut">
+    <wsdl:part name="parameters" element="tns:AcceptPayTermsApprovalResponse" />
+  </wsdl:message>
+  <wsdl:message name="Add_ID_OutSoapIn">
+    <wsdl:part name="parameters" element="tns:Add_ID_Out" />
+  </wsdl:message>
+  <wsdl:message name="Add_ID_OutSoapOut">
+    <wsdl:part name="parameters" element="tns:Add_ID_OutResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustomerPhoneLookupSoapIn">
+    <wsdl:part name="parameters" element="tns:CustomerPhoneLookup" />
+  </wsdl:message>
+  <wsdl:message name="CustomerPhoneLookupSoapOut">
+    <wsdl:part name="parameters" element="tns:CustomerPhoneLookupResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateDermEduSoapIn">
+    <wsdl:part name="parameters" element="tns:AuthenticateDermEdu" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateDermEduSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenticateDermEduResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPasswordDermEduSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPasswordDermEdu" />
+  </wsdl:message>
+  <wsdl:message name="GetPasswordDermEduSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPasswordDermEduResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertEventDirectoryEntrySoapIn">
+    <wsdl:part name="parameters" element="tns:InsertEventDirectoryEntry" />
+  </wsdl:message>
+  <wsdl:message name="InsertEventDirectoryEntrySoapOut">
+    <wsdl:part name="parameters" element="tns:InsertEventDirectoryEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveEventDirectorySoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveEventDirectory" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveEventDirectorySoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveEventDirectoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveEventDirectoryByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveEventDirectoryByID" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveEventDirectoryByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveEventDirectoryByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveDermCircleBannerSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveDermCircleBanner" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveDermCircleBannerSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveDermCircleBannerResponse" />
+  </wsdl:message>
+  <wsdl:message name="EncryptCryptoSoapIn">
+    <wsdl:part name="parameters" element="tns:EncryptCrypto" />
+  </wsdl:message>
+  <wsdl:message name="EncryptCryptoSoapOut">
+    <wsdl:part name="parameters" element="tns:EncryptCryptoResponse" />
+  </wsdl:message>
+  <wsdl:message name="DecryptCryptoSoapIn">
+    <wsdl:part name="parameters" element="tns:DecryptCrypto" />
+  </wsdl:message>
+  <wsdl:message name="DecryptCryptoSoapOut">
+    <wsdl:part name="parameters" element="tns:DecryptCryptoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DRMeBusinessUserSoap">
+    <wsdl:operation name="Authenticate">
+      <wsdl:input message="tns:AuthenticateSoapIn" />
+      <wsdl:output message="tns:AuthenticateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomerLookup">
+      <wsdl:input message="tns:CustomerLookupSoapIn" />
+      <wsdl:output message="tns:CustomerLookupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <wsdl:input message="tns:GetSoapIn" />
+      <wsdl:output message="tns:GetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserId">
+      <wsdl:input message="tns:GetUserIdSoapIn" />
+      <wsdl:output message="tns:GetUserIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <wsdl:input message="tns:AddSoapIn" />
+      <wsdl:output message="tns:AddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input message="tns:UpdateSoapIn" />
+      <wsdl:output message="tns:UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPassword">
+      <wsdl:input message="tns:GetPasswordSoapIn" />
+      <wsdl:output message="tns:GetPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDermDollarHeader">
+      <wsdl:input message="tns:GetDermDollarHeaderSoapIn" />
+      <wsdl:output message="tns:GetDermDollarHeaderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDermDollarDetail">
+      <wsdl:input message="tns:GetDermDollarDetailSoapIn" />
+      <wsdl:output message="tns:GetDermDollarDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountAddress">
+      <wsdl:input message="tns:GetAccountAddressSoapIn" />
+      <wsdl:output message="tns:GetAccountAddressSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBCCounter">
+      <wsdl:input message="tns:UpdateBCCounterSoapIn" />
+      <wsdl:output message="tns:UpdateBCCounterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBCReferralSite">
+      <wsdl:input message="tns:UpdateBCReferralSiteSoapIn" />
+      <wsdl:output message="tns:UpdateBCReferralSiteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTermsConditions">
+      <wsdl:input message="tns:UpdateTermsConditionsSoapIn" />
+      <wsdl:output message="tns:UpdateTermsConditionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyAccountStatus">
+      <wsdl:input message="tns:VerifyAccountStatusSoapIn" />
+      <wsdl:output message="tns:VerifyAccountStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveB2BRequest">
+      <wsdl:input message="tns:RetrieveB2BRequestSoapIn" />
+      <wsdl:output message="tns:RetrieveB2BRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveB2BRequestByEmail">
+      <wsdl:input message="tns:RetrieveB2BRequestByEmailSoapIn" />
+      <wsdl:output message="tns:RetrieveB2BRequestByEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveBCEmail">
+      <wsdl:input message="tns:RetrieveBCEmailSoapIn" />
+      <wsdl:output message="tns:RetrieveBCEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyB2BProfile">
+      <wsdl:input message="tns:VerifyB2BProfileSoapIn" />
+      <wsdl:output message="tns:VerifyB2BProfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveE2WUser">
+      <wsdl:input message="tns:RetrieveE2WUserSoapIn" />
+      <wsdl:output message="tns:RetrieveE2WUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveE2WUserByAn8">
+      <wsdl:input message="tns:RetrieveE2WUserByAn8SoapIn" />
+      <wsdl:output message="tns:RetrieveE2WUserByAn8SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateE2WUser">
+      <wsdl:input message="tns:UpdateE2WUserSoapIn" />
+      <wsdl:output message="tns:UpdateE2WUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNetTerms">
+      <wsdl:input message="tns:UpdateNetTermsSoapIn" />
+      <wsdl:output message="tns:UpdateNetTermsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBCUsersByAN8">
+      <wsdl:input message="tns:GetBCUsersByAN8SoapIn" />
+      <wsdl:output message="tns:GetBCUsersByAN8SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatetB2BRequestEntry">
+      <wsdl:input message="tns:UpdatetB2BRequestEntrySoapIn" />
+      <wsdl:output message="tns:UpdatetB2BRequestEntrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertB2BRequestToERP">
+      <wsdl:input message="tns:InsertB2BRequestToERPSoapIn" />
+      <wsdl:output message="tns:InsertB2BRequestToERPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertB2BRequestEntry">
+      <wsdl:input message="tns:InsertB2BRequestEntrySoapIn" />
+      <wsdl:output message="tns:InsertB2BRequestEntrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEncryptedPassword">
+      <wsdl:input message="tns:UpdateEncryptedPasswordSoapIn" />
+      <wsdl:output message="tns:UpdateEncryptedPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBCUsers">
+      <wsdl:input message="tns:GetBCUsersSoapIn" />
+      <wsdl:output message="tns:GetBCUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertB2CRequestEntry">
+      <wsdl:input message="tns:InsertB2CRequestEntrySoapIn" />
+      <wsdl:output message="tns:InsertB2CRequestEntrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertB2CRequestEntry_ss">
+      <wsdl:input message="tns:InsertB2CRequestEntry_ssSoapIn" />
+      <wsdl:output message="tns:InsertB2CRequestEntry_ssSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveB2CRequest">
+      <wsdl:input message="tns:RetrieveB2CRequestSoapIn" />
+      <wsdl:output message="tns:RetrieveB2CRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveB2CRequestByEmail">
+      <wsdl:input message="tns:RetrieveB2CRequestByEmailSoapIn" />
+      <wsdl:output message="tns:RetrieveB2CRequestByEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatetB2CRequestEntry">
+      <wsdl:input message="tns:UpdatetB2CRequestEntrySoapIn" />
+      <wsdl:output message="tns:UpdatetB2CRequestEntrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyB2CProfile">
+      <wsdl:input message="tns:VerifyB2CProfileSoapIn" />
+      <wsdl:output message="tns:VerifyB2CProfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyB2CProfileByAn8Prod">
+      <wsdl:input message="tns:VerifyB2CProfileByAn8ProdSoapIn" />
+      <wsdl:output message="tns:VerifyB2CProfileByAn8ProdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertAffiliateRequestEntry">
+      <wsdl:input message="tns:InsertAffiliateRequestEntrySoapIn" />
+      <wsdl:output message="tns:InsertAffiliateRequestEntrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyAffiliateProfile">
+      <wsdl:input message="tns:VerifyAffiliateProfileSoapIn" />
+      <wsdl:output message="tns:VerifyAffiliateProfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyAffiliateProfileByAn8Prod">
+      <wsdl:input message="tns:VerifyAffiliateProfileByAn8ProdSoapIn" />
+      <wsdl:output message="tns:VerifyAffiliateProfileByAn8ProdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertAffiliateRequestEntry_ss">
+      <wsdl:input message="tns:InsertAffiliateRequestEntry_ssSoapIn" />
+      <wsdl:output message="tns:InsertAffiliateRequestEntry_ssSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyAffiliateProfile_SS">
+      <wsdl:input message="tns:VerifyAffiliateProfile_SSSoapIn" />
+      <wsdl:output message="tns:VerifyAffiliateProfile_SSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyAffiliateProfileByAn8Prod_SS">
+      <wsdl:input message="tns:VerifyAffiliateProfileByAn8Prod_SSSoapIn" />
+      <wsdl:output message="tns:VerifyAffiliateProfileByAn8Prod_SSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatetAffiliateRequestEntry">
+      <wsdl:input message="tns:UpdatetAffiliateRequestEntrySoapIn" />
+      <wsdl:output message="tns:UpdatetAffiliateRequestEntrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAffiliateRequest">
+      <wsdl:input message="tns:RetrieveAffiliateRequestSoapIn" />
+      <wsdl:output message="tns:RetrieveAffiliateRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert_SalonServ_BusinessCenter">
+      <wsdl:input message="tns:Insert_SalonServ_BusinessCenterSoapIn" />
+      <wsdl:output message="tns:Insert_SalonServ_BusinessCenterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update_SalonServ_BusinessCenter">
+      <wsdl:input message="tns:Update_SalonServ_BusinessCenterSoapIn" />
+      <wsdl:output message="tns:Update_SalonServ_BusinessCenterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Retrieve_SalonServ_BusinessCenter">
+      <wsdl:input message="tns:Retrieve_SalonServ_BusinessCenterSoapIn" />
+      <wsdl:output message="tns:Retrieve_SalonServ_BusinessCenterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Retrieve_SalonServ_CustMaster">
+      <wsdl:input message="tns:Retrieve_SalonServ_CustMasterSoapIn" />
+      <wsdl:output message="tns:Retrieve_SalonServ_CustMasterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Retrieve_SalonServ_BusinessCenter_Email">
+      <wsdl:input message="tns:Retrieve_SalonServ_BusinessCenter_EmailSoapIn" />
+      <wsdl:output message="tns:Retrieve_SalonServ_BusinessCenter_EmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Retrieve_SalonServ_BusinessCenter_Email_Password">
+      <wsdl:input message="tns:Retrieve_SalonServ_BusinessCenter_Email_PasswordSoapIn" />
+      <wsdl:output message="tns:Retrieve_SalonServ_BusinessCenter_Email_PasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update_SalonServices_BusinessCenter_Counter">
+      <wsdl:input message="tns:Update_SalonServices_BusinessCenter_CounterSoapIn" />
+      <wsdl:output message="tns:Update_SalonServices_BusinessCenter_CounterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Retrieve_Payterms_Exist">
+      <wsdl:input message="tns:Retrieve_Payterms_ExistSoapIn" />
+      <wsdl:output message="tns:Retrieve_Payterms_ExistSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertPayTermsRequestEntry">
+      <wsdl:input message="tns:InsertPayTermsRequestEntrySoapIn" />
+      <wsdl:output message="tns:InsertPayTermsRequestEntrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyPayTermsProfile">
+      <wsdl:input message="tns:VerifyPayTermsProfileSoapIn" />
+      <wsdl:output message="tns:VerifyPayTermsProfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatetPayTermsRequestEntry">
+      <wsdl:input message="tns:UpdatetPayTermsRequestEntrySoapIn" />
+      <wsdl:output message="tns:UpdatetPayTermsRequestEntrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePayTermsRequest">
+      <wsdl:input message="tns:RetrievePayTermsRequestSoapIn" />
+      <wsdl:output message="tns:RetrievePayTermsRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOwner">
+      <wsdl:input message="tns:GetOwnerSoapIn" />
+      <wsdl:output message="tns:GetOwnerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AcceptPayTermsApproval">
+      <wsdl:input message="tns:AcceptPayTermsApprovalSoapIn" />
+      <wsdl:output message="tns:AcceptPayTermsApprovalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Add_ID_Out">
+      <wsdl:input message="tns:Add_ID_OutSoapIn" />
+      <wsdl:output message="tns:Add_ID_OutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomerPhoneLookup">
+      <wsdl:input message="tns:CustomerPhoneLookupSoapIn" />
+      <wsdl:output message="tns:CustomerPhoneLookupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateDermEdu">
+      <wsdl:input message="tns:AuthenticateDermEduSoapIn" />
+      <wsdl:output message="tns:AuthenticateDermEduSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPasswordDermEdu">
+      <wsdl:input message="tns:GetPasswordDermEduSoapIn" />
+      <wsdl:output message="tns:GetPasswordDermEduSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEventDirectoryEntry">
+      <wsdl:input message="tns:InsertEventDirectoryEntrySoapIn" />
+      <wsdl:output message="tns:InsertEventDirectoryEntrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveEventDirectory">
+      <wsdl:input message="tns:RetrieveEventDirectorySoapIn" />
+      <wsdl:output message="tns:RetrieveEventDirectorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveEventDirectoryByID">
+      <wsdl:input message="tns:RetrieveEventDirectoryByIDSoapIn" />
+      <wsdl:output message="tns:RetrieveEventDirectoryByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveDermCircleBanner">
+      <wsdl:input message="tns:RetrieveDermCircleBannerSoapIn" />
+      <wsdl:output message="tns:RetrieveDermCircleBannerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EncryptCrypto">
+      <wsdl:input message="tns:EncryptCryptoSoapIn" />
+      <wsdl:output message="tns:EncryptCryptoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DecryptCrypto">
+      <wsdl:input message="tns:DecryptCryptoSoapIn" />
+      <wsdl:output message="tns:DecryptCryptoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DRMeBusinessUserSoap" type="tns:DRMeBusinessUserSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Authenticate">
+      <soap:operation soapAction="http://dermalogica.com/webservices/Authenticate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomerLookup">
+      <soap:operation soapAction="http://dermalogica.com/webservices/CustomerLookup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <soap:operation soapAction="http://dermalogica.com/webservices/Get" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserId">
+      <soap:operation soapAction="http://dermalogica.com/webservices/GetUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <soap:operation soapAction="http://dermalogica.com/webservices/Add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://dermalogica.com/webservices/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPassword">
+      <soap:operation soapAction="http://dermalogica.com/webservices/GetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDermDollarHeader">
+      <soap:operation soapAction="http://dermalogica.com/webservices/GetDermDollarHeader" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDermDollarDetail">
+      <soap:operation soapAction="http://dermalogica.com/webservices/GetDermDollarDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountAddress">
+      <soap:operation soapAction="http://dermalogica.com/webservices/GetAccountAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBCCounter">
+      <soap:operation soapAction="http://dermalogica.com/webservices/UpdateBCCounter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBCReferralSite">
+      <soap:operation soapAction="http://dermalogica.com/webservices/UpdateBCReferralSite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTermsConditions">
+      <soap:operation soapAction="http://dermalogica.com/webservices/UpdateTermsConditions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyAccountStatus">
+      <soap:operation soapAction="http://dermalogica.com/webservices/VerifyAccountStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveB2BRequest">
+      <soap:operation soapAction="http://dermalogica.com/webservices/RetrieveB2BRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveB2BRequestByEmail">
+      <soap:operation soapAction="http://dermalogica.com/webservices/RetrieveB2BRequestByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveBCEmail">
+      <soap:operation soapAction="http://dermalogica.com/webservices/RetrieveBCEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyB2BProfile">
+      <soap:operation soapAction="http://dermalogica.com/webservices/VerifyB2BProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveE2WUser">
+      <soap:operation soapAction="http://dermalogica.com/webservices/RetrieveE2WUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveE2WUserByAn8">
+      <soap:operation soapAction="http://dermalogica.com/webservices/RetrieveE2WUserByAn8" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateE2WUser">
+      <soap:operation soapAction="http://dermalogica.com/webservices/UpdateE2WUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNetTerms">
+      <soap:operation soapAction="http://dermalogica.com/webservices/UpdateNetTerms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBCUsersByAN8">
+      <soap:operation soapAction="http://dermalogica.com/webservices/GetBCUsersByAN8" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatetB2BRequestEntry">
+      <soap:operation soapAction="http://dermalogica.com/webservices/UpdatetB2BRequestEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertB2BRequestToERP">
+      <soap:operation soapAction="http://dermalogica.com/webservices/InsertB2BRequestToERP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertB2BRequestEntry">
+      <soap:operation soapAction="http://dermalogica.com/webservices/InsertB2BRequestEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEncryptedPassword">
+      <soap:operation soapAction="http://dermalogica.com/webservices/UpdateEncryptedPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBCUsers">
+      <soap:operation soapAction="http://dermalogica.com/webservices/GetBCUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertB2CRequestEntry">
+      <soap:operation soapAction="http://dermalogica.com/webservices/InsertB2CRequestEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertB2CRequestEntry_ss">
+      <soap:operation soapAction="http://dermalogica.com/webservices/InsertB2CRequestEntry_ss" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveB2CRequest">
+      <soap:operation soapAction="http://dermalogica.com/webservices/RetrieveB2CRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveB2CRequestByEmail">
+      <soap:operation soapAction="http://dermalogica.com/webservices/RetrieveB2CRequestByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatetB2CRequestEntry">
+      <soap:operation soapAction="http://dermalogica.com/webservices/UpdatetB2CRequestEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyB2CProfile">
+      <soap:operation soapAction="http://dermalogica.com/webservices/VerifyB2CProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyB2CProfileByAn8Prod">
+      <soap:operation soapAction="http://dermalogica.com/webservices/VerifyB2CProfileByAn8Prod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAffiliateRequestEntry">
+      <soap:operation soapAction="http://dermalogica.com/webservices/InsertAffiliateRequestEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyAffiliateProfile">
+      <soap:operation soapAction="http://dermalogica.com/webservices/VerifyAffiliateProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyAffiliateProfileByAn8Prod">
+      <soap:operation soapAction="http://dermalogica.com/webservices/VerifyAffiliateProfileByAn8Prod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAffiliateRequestEntry_ss">
+      <soap:operation soapAction="http://dermalogica.com/webservices/InsertAffiliateRequestEntry_ss" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyAffiliateProfile_SS">
+      <soap:operation soapAction="http://dermalogica.com/webservices/VerifyAffiliateProfile_SS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyAffiliateProfileByAn8Prod_SS">
+      <soap:operation soapAction="http://dermalogica.com/webservices/VerifyAffiliateProfileByAn8Prod_SS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatetAffiliateRequestEntry">
+      <soap:operation soapAction="http://dermalogica.com/webservices/UpdatetAffiliateRequestEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAffiliateRequest">
+      <soap:operation soapAction="http://dermalogica.com/webservices/RetrieveAffiliateRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_SalonServ_BusinessCenter">
+      <soap:operation soapAction="http://dermalogica.com/webservices/Insert_SalonServ_BusinessCenter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_SalonServ_BusinessCenter">
+      <soap:operation soapAction="http://dermalogica.com/webservices/Update_SalonServ_BusinessCenter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Retrieve_SalonServ_BusinessCenter">
+      <soap:operation soapAction="http://dermalogica.com/webservices/Retrieve_SalonServ_BusinessCenter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Retrieve_SalonServ_CustMaster">
+      <soap:operation soapAction="http://dermalogica.com/webservices/Retrieve_SalonServ_CustMaster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Retrieve_SalonServ_BusinessCenter_Email">
+      <soap:operation soapAction="http://dermalogica.com/webservices/Retrieve_SalonServ_BusinessCenter_Email" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Retrieve_SalonServ_BusinessCenter_Email_Password">
+      <soap:operation soapAction="http://dermalogica.com/webservices/Retrieve_SalonServ_BusinessCenter_Email_Password" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_SalonServices_BusinessCenter_Counter">
+      <soap:operation soapAction="http://dermalogica.com/webservices/Update_SalonServices_BusinessCenter_Counter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Retrieve_Payterms_Exist">
+      <soap:operation soapAction="http://dermalogica.com/webservices/Retrieve_Payterms_Exist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertPayTermsRequestEntry">
+      <soap:operation soapAction="http://dermalogica.com/webservices/InsertPayTermsRequestEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyPayTermsProfile">
+      <soap:operation soapAction="http://dermalogica.com/webservices/VerifyPayTermsProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatetPayTermsRequestEntry">
+      <soap:operation soapAction="http://dermalogica.com/webservices/UpdatetPayTermsRequestEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePayTermsRequest">
+      <soap:operation soapAction="http://dermalogica.com/webservices/RetrievePayTermsRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOwner">
+      <soap:operation soapAction="http://dermalogica.com/webservices/GetOwner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptPayTermsApproval">
+      <soap:operation soapAction="http://dermalogica.com/webservices/AcceptPayTermsApproval" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add_ID_Out">
+      <soap:operation soapAction="http://dermalogica.com/webservices/Add_ID_Out" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomerPhoneLookup">
+      <soap:operation soapAction="http://dermalogica.com/webservices/CustomerPhoneLookup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateDermEdu">
+      <soap:operation soapAction="http://dermalogica.com/webservices/AuthenticateDermEdu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPasswordDermEdu">
+      <soap:operation soapAction="http://dermalogica.com/webservices/GetPasswordDermEdu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertEventDirectoryEntry">
+      <soap:operation soapAction="http://dermalogica.com/webservices/InsertEventDirectoryEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveEventDirectory">
+      <soap:operation soapAction="http://dermalogica.com/webservices/RetrieveEventDirectory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveEventDirectoryByID">
+      <soap:operation soapAction="http://dermalogica.com/webservices/RetrieveEventDirectoryByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveDermCircleBanner">
+      <soap:operation soapAction="http://dermalogica.com/webservices/RetrieveDermCircleBanner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EncryptCrypto">
+      <soap:operation soapAction="http://dermalogica.com/webservices/EncryptCrypto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DecryptCrypto">
+      <soap:operation soapAction="http://dermalogica.com/webservices/DecryptCrypto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DRMeBusinessUser">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">eBusiness User Web Service.</documentation>
+    <wsdl:port name="DRMeBusinessUserSoap" binding="tns:DRMeBusinessUserSoap">
+      <soap:address location="http://192.168.116.181/eBusinessWS/user.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
